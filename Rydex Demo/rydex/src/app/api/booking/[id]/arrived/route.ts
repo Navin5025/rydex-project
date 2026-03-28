@@ -1,9 +1,9 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import connectDb from "@/lib/db";
 import Booking from "@/models/booking.model";
 
-export async function POST(req: NextRequest, context: any) {
-  const { id } = context.params; // ❗ no await
+export async function POST(req: any, context: any) {
+  const id = context.params.id;
 
   await connectDb();
 
