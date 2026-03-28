@@ -21,19 +21,24 @@ type Status =
   | "payment" | "confirmed";
 
 export default function CheckoutPage() {
-  const params = useSearchParams();
+ const params = useSearchParams();
 
-  const pickup    = params.get("pickup")    || "Pickup Location";
-  const drop      = params.get("drop")      || "Drop Location";
-  const vehicle   = params.get("vehicle")   || "car";
-  const vehicleId = params.get("vehicleId");
-  const fare      = Number(params.get("fare")) || 249;
-  const mobileNumber = params.get("mobileNumber") || "";
-  const driverId  = params.get("driverId");
-  const pickupLat = Number(params.get("pickupLat"));
-  const pickupLng = Number(params.get("pickupLng"));
-  const dropLat   = Number(params.get("dropLat"));
-  const dropLng   = Number(params.get("dropLng"));
+if (!params) {
+  return <div>Loading...</div>;
+}
+
+ const pickup = params?.get("pickup") || "Pickup Location";
+const drop = params?.get("drop") || "Drop Location";
+const vehicle = params?.get("vehicle") || "car";
+const vehicleId = params?.get("vehicleId") || "";
+const fare = Number(params?.get("fare") || 249);
+const mobileNumber = params?.get("mobileNumber") || "";
+const driverId = params?.get("driverId") || "";
+
+const pickupLat = Number(params?.get("pickupLat") || 0);
+const pickupLng = Number(params?.get("pickupLng") || 0);
+const dropLat = Number(params?.get("dropLat") || 0);
+const dropLng = Number(params?.get("dropLng") || 0);
 
   const VehicleIcon = VEHICLE_ICONS[vehicle.toLowerCase()] || Car;
 

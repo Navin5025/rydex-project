@@ -1,7 +1,7 @@
 "use client";
 
 import { Suspense } from "react";
-import CheckoutContent from "./checkoutcontext";
+import CheckoutContent from "./checkoutContent";
 
 export default function Page() {
   return (
