@@ -2,11 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import connectDb from "@/lib/db";
 import Booking from "@/models/booking.model";
 
-export async function POST(
-  req: NextRequest,
-  context: { params: Promise<{ id: string }> }
-) {
-  const { id } = await context.params;
+export async function POST(req: NextRequest, context: any) {
+  const { id } = context.params; // ❗ no await
 
   await connectDb();
 
