@@ -4,7 +4,7 @@ import Booking from "@/models/booking.model";
 
 export async function POST(
   req: NextRequest,
-  context: any
+  context: { params: Promise<{ id: string }> }
 ) {
   const { id } = await context.params;
 
